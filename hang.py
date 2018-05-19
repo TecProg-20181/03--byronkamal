@@ -1,29 +1,10 @@
 import random
 import string
+from word import Word
 
-WORDLIST_FILENAME = "words.txt"
+instanceWord = Word()
 
-def getRandomWord(wordlist):
-    return random.choice(wordlist)
-
-def loadWords():
-    """
-    Depending on the size of the word list, this function may
-    take a while to finish.
-    """
-    print "Loading word list from file..."
-
-    readingParam = 'r'
-    inputFile = open(WORDLIST_FILENAME, readingParam)
-
-    lineReader = inputFile.readline()
-    wordlist = string.split(lineReader)
-
-    print "  ", len(wordlist), "words loaded."
-
-    randomWord = getRandomWord(wordlist)
-    return randomWord
-
+instanceWord.loadWords()
 
 def isWordGuessed(secretWord, lettersGuessed):
     secretLetters = []
